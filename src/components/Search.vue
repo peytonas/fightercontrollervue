@@ -1,11 +1,11 @@
 <template>
   <div class="search col-12">
     <button class="button" @click="getFighters()">
-      <!-- <span style="color: #fc3d20;"> -->
-      <b>
-        <i class="fas fa-rocket"></i>
-      </b>
-      <!-- </span> -->
+      <span style="color: #ffffff">
+        <b>
+          <i class="fas fa-dice-d20"></i>
+        </b>
+      </span>
     </button>
   </div>
 </template>
@@ -30,16 +30,16 @@ export default {
 
 <style scoped>
 .button {
-  background-color: #0b3c91;
+  background-color: #fc0c09;
   display: inline-block;
   border: none;
   outline: none;
   font-size: 16px;
   border-radius: 8px;
-  box-shadow: 0 9px #07275f;
+  box-shadow: 0 9px #c70906;
 }
 .button:active {
-  box-shadow: 0 5px #07275f;
+  box-shadow: 0 5px #c70906;
   transform: translateY(4px);
 }
 </style>

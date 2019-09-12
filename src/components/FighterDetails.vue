@@ -1,7 +1,7 @@
 <template>
   <div class="fighter-details col-12 justify-content-around spacing" v-if="fighter">
     <p>{{fighter.name}}</p>
-    <img :src="fighter.imgUrl" alt="Goku" />
+    <img :src="fighter.imgUrl" />
     <p>{{fighter.health}}</p>
     <p>{{fighter.hits}}</p>
     <p>{{fighter.attacks}}</p>
