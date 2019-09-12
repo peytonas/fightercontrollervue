@@ -1,16 +1,16 @@
 <template>
-  <div class="fighterDetails container">
+  <div class="home container-fluid">
     <div class="row">
-      <div class="col-12">
-        <h1>
-          <img alt="fight" src="../assets/stickeroid_5bf5459e293ac.png" class="img" />
-        </h1>
+      <fighterDetails
+        v-for="fighterDetails in home"
+        :fighterProp="fighterDetails"
+        :key="fighterDetails._id"
+      />
+      <div class="col-12 pt-5">
+        <img alt="fight" src="../assets/stickeroid_5bf5459e293ac.png" class="img" />
       </div>
-      <search />
     </div>
-    <div>
-      <FighterDetails />
-    </div>
+    <search />
   </div>
 </template>
 
@@ -20,9 +20,20 @@ import FighterDetails from "@/components/FighterDetails.vue";
 import Search from "@/components/Search.vue";
 
 export default {
-  name: "fighterDetails",
+  name: "home",
+  data() {
+    return {};
+  },
+  mounted() {
+    this.$store.dispatch("getFighters");
+  },
+  methods: {},
+  computed: {
+    home() {
+      return this.$store.state.home;
+    }
+  },
   components: {
-    Search,
     FighterDetails
   }
 };
@@ -30,6 +41,6 @@ export default {
 
 <style>
 .img {
-  height: 150px;
+  height: 100px;
 }
 </style>

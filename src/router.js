@@ -7,7 +7,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [{
-      path: '/',
+      path: '/home',
       name: 'home',
       component: Home
     },
@@ -20,6 +20,14 @@ export default new Router({
       component: function () {
         // @ts-ignore
         return import( /* webpackChunkName: "about" */ './views/About.vue')
+      }
+    },
+    {
+      path: '/fighters/:fighterId',
+      name: 'fighter',
+      component: function () {
+        // @ts-ignore
+        return import( /* webpackChunkName: "car" */ './views/Home.vue')
       }
     }
   ]

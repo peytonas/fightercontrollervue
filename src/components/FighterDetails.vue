@@ -1,10 +1,11 @@
 <template>
-  <div class="fighter-details col-12 justify-content-around spacing" v-if="fighter">
+  <div class="fighter spacing">
     <p>{{fighter.name}}</p>
     <img :src="fighter.imgUrl" />
     <p>{{fighter.health}}</p>
     <p>{{fighter.hits}}</p>
     <p>{{fighter.attacks}}</p>
+    <button class="btn btn-danger">punch</button>
   </div>
 </template>
 
@@ -14,21 +15,30 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    let payload = {
+      fighterId: this.$route.params.fighterId
+    };
+    this.$store.dispatch("getFighterById", payload);
+  },
   computed: {
     fighter() {
       return this.$store.state.activeFighter;
     }
   },
-  props: {
-    msg: String
-  }
+  methods: {
+    delete() {
+      this.$store.dispatch("deleteFighter", this.fighter._id);
+    }
+  },
+  components: {}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 img {
-  height: 300px;
+  height: 200px;
 }
 .spacing {
   padding-top: 15px;
