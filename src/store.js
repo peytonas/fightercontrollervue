@@ -15,6 +15,9 @@ export default new Vuex.Store({
     activeFighter: {}
   },
   mutations: {
+    setFighters(state, payload) {
+      state.fighters = payload
+    },
     setActiveFighter(state, payload) {
       state.activeFighter = payload
     }
@@ -46,7 +49,7 @@ export default new Vuex.Store({
       dispatch
     }, payload) {
       try {
-        let res = await api.delete('/cars/' + payload)
+        let res = await api.delete('/fighters/' + payload)
         dispatch('getFighters')
         router.push({
           name: 'fighters'

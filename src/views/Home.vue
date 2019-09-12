@@ -1,16 +1,12 @@
 <template>
   <div class="home container-fluid">
     <div class="row">
-      <fighterDetails
-        v-for="fighterDetails in home"
-        :fighterProp="fighterDetails"
-        :key="fighterDetails._id"
-      />
+      <fighter v-for="fighter in home" :fighterProp="fighter" :key="fighter._id" />
       <div class="col-12 pt-5">
         <img alt="fight" src="../assets/stickeroid_5bf5459e293ac.png" class="img" />
       </div>
     </div>
-    <search />
+    <!-- <search /> -->
   </div>
 </template>
 
@@ -25,7 +21,7 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.dispatch("getFighters");
+    this.$store.dispatch("home");
   },
   methods: {},
   computed: {

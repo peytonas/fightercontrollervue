@@ -27,8 +27,12 @@ export default new Router({
       name: 'fighter',
       component: function () {
         // @ts-ignore
-        return import( /* webpackChunkName: "car" */ './views/Home.vue')
+        return import( /* webpackChunkName: "car" */ './views/Fighter.vue')
       }
-    }
+    },
+    // {
+    //   path: '*',
+    //   redirect: '/home'
+    // }
   ]
 })

@@ -1,34 +1,27 @@
 <template>
-  <div class="fighter spacing">
-    <p>{{fighter.name}}</p>
-    <img :src="fighter.imgUrl" />
-    <p>{{fighter.health}}</p>
-    <p>{{fighter.hits}}</p>
-    <p>{{fighter.attacks}}</p>
-    <button class="btn btn-danger">punch</button>
+  <div class="fighter col-3 border rounded spacing" @click="viewFighter()">
+    <p>{{fighterProp.name}}</p>
+    <!-- <img :src="fighterProp.imgUrl" /> -->
+    <p>{{fighterProp.health}}</p>
+    <p>{{fighterProp.hits}}</p>
+    <p>{{fighterProp.attacks}}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "fighterDetails",
+  name: "fighter",
+  props: ["fighterProp"],
   data() {
     return {};
   },
-  mounted() {
-    let payload = {
-      fighterId: this.$route.params.fighterId
-    };
-    this.$store.dispatch("getFighterById", payload);
-  },
-  computed: {
-    fighter() {
-      return this.$store.state.activeFighter;
-    }
-  },
+  computed: {},
   methods: {
-    delete() {
-      this.$store.dispatch("deleteFighter", this.fighter._id);
+    viewFighter() {
+      this.$router.push({
+        name: "fighter",
+        params: { fighterId: this.fighterProp._id }
+      });
     }
   },
   components: {}
